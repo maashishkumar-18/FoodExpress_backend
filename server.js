@@ -54,6 +54,8 @@ app.get('/api/health', (req, res) => {
 });
 
 // Routes
+// Handle preflight requests
+app.options('*', cors(corsOptions));
 app.use('/api/auth', require('./routes/auth.js'));
 app.use('/api/restaurants', require('./routes/restaurants.js'));
 app.use('/api/orders', require('./routes/orders.js'));
