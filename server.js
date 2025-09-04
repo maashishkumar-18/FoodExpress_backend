@@ -24,7 +24,7 @@ const corsOptions = {
     ].filter(Boolean);
 
     // Check if the origin is allowed
-    if (allowedOrigins.includes(origin) || allowedOrigins.some(allowedOrigin => origin.includes(allowedOrigin))) {
+    if (allowedOrigins.includes(origin) || allowedOrigins.some(allowedOrigin => origin.startsWith(allowedOrigin))) {
       callback(null, true);
     } else {
       console.log('CORS blocked for origin:', origin);
