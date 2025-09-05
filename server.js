@@ -13,10 +13,14 @@ connectDB();
 const app = express();
 const corsOptions = {
   origin: function (origin, callback) {
+
+    origin: function (origin, callback) {
+    if (!origin || origin.endsWith('.vercel.app')) {
+      return callback(null, true);
+    }
     
     const allowedOrigins = [
       'http://localhost:3000',
-      'https://food-express-frontend-lake.vercel.app/',
       process.env.FRONTEND_URL
     ].filter(Boolean);
 
