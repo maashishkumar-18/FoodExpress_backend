@@ -12,9 +12,7 @@ connectDB();
 
 const app = express();
 const corsOptions = {
-  origin: function (origin, callback) {
-
-    origin: function (origin, callback) {
+      origin: function (origin, callback) {
     if (!origin || origin.endsWith('.vercel.app')) {
       return callback(null, true);
     }
